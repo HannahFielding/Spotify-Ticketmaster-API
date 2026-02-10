@@ -9,8 +9,8 @@ based on a user's listening preferences. After authenticating with Spotify, the 
 analyzes the user's playlists and saved tracks to identify their most frequently listened-to
 artists, then retrieves upcoming U.S. concert events from Ticketmaster.
 
-The goal of this project is to demonstrate backend API integration, OAuth authentication, data
-addregation, and real-time third-party service interaction.
+This project demonstrates backend API orchestration, OAuth 2.0 authentication, 
+data aggregation at scale, and resilient handling of third-party rate limits.
 
 ---
 Features
@@ -47,3 +47,30 @@ Known Limitations
 - Full inventory availability requires partner-level API access not publicly available.
 - Event data accuracy depends on third-party API responses.
 - Application is not currently deployed to a cloud environment.
+---
+Setup & Installation
+
+Step 1 - (Bash) Clone Respository:
+
+    git clone https://github.com/yourusername/spotify-concert-recommender.git
+    cd spotify-concert-recommender
+    pip install -r requirements.txt
+
+Step 2 - (Code) Create a .env file with:
+
+    SPOTIFY_CLIENT_ID=your_client_id
+    SPOTIFY_CLIENT_SECRET=your_client_secret
+    TICKETMASTER_API_KEY=your_api_key
+
+Step 3 - (Bash) Run the application:
+
+    python main.py
+
+Step 4 - (Code) Navigate to:
+
+    http://127.0.0.1:8888
+
+
+
+
+
