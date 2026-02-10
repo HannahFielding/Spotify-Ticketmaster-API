@@ -69,3 +69,8 @@ Step 3 - (Bash) Run the application:
 Step 4 - (Code) Navigate to:
 
     http://127.0.0.1:8888
+
+---
+#### License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
