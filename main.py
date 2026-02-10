@@ -4,7 +4,9 @@ import time
 from flask import Flask, redirect, request, jsonify, session, render_template
 import requests
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
 CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET")
 TICKET_URI_KEY = os.getenv("TICKETMASTER_API_KEY")
