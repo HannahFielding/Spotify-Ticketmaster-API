@@ -1,8 +1,8 @@
-Spotify Concert Recommender
+### Spotify Concert Recommender
 
 Author : Hannah Fielding
 
-Overview
+#### Overview
 
 This web application integrates the Spotify and Ticketmaster APIs to recommend live concerts
 based on a user's listening preferences. After authenticating with Spotify, the application
@@ -13,7 +13,7 @@ This project demonstrates backend API orchestration, OAuth 2.0 authentication,
 data aggregation at scale, and resilient handling of third-party rate limits.
 
 ---
-Features
+#### Features
 
 - Spotify OAuth 2.0 authentication flow
 - Access to user playlists and saved tracks
@@ -23,7 +23,7 @@ Features
 - Basic rate-limit handling for Spotify API (HTTP 429 retry logic)
 - Session-based token management with refresh support
 ---
-Tech Stack
+#### Tech Stack
 
 - Python
 - Flask
@@ -32,23 +32,23 @@ Tech Stack
 - Requests
 - HTML Templates
 ---
-System Design
+#### System Design
 
-- User authenticates via Spotify OAuth.
-- Access token is stored in session.
-- User playlist and saved track data are fetched.
-- Artists are aggregated and ranked by frequency.
-- Ticketmaster API is queried using artist names.
-- Matching events are filtered and displayed to the user.
+1. User authenticates via Spotify OAuth.
+2. Access token is stored in session.
+3. User playlist and saved track data are fetched.
+4. Artists are aggregated and ranked by frequency.
+5. Ticketmaster API is queried using artist names.
+6. Matching events are filtered and displayed to the user.
 ---
-Known Limitations
+#### Known Limitations
 
 - Ticketmaster’s onsale status does not guarantee actual ticket availability.
 - Full inventory availability requires partner-level API access not publicly available.
 - Event data accuracy depends on third-party API responses.
 - Application is not currently deployed to a cloud environment.
 ---
-Setup & Installation
+#### Setup & Installation
 
 Step 1 - (Bash) Clone Respository:
 
@@ -69,8 +69,3 @@ Step 3 - (Bash) Run the application:
 Step 4 - (Code) Navigate to:
 
     http://127.0.0.1:8888
-
-
-
-
-
