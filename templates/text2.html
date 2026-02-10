@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spotify / Ticketmaster API</title>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa, #e4ecf3);
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: #222;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            font-size: 34px;
+            font-weight: 700;
+            padding: 40px 20px 10px;
+            color: #1a237e;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 16px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: #555;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .card h2 {
+            margin-bottom: 20px;
+            color: #0d47a1;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        input[type="text"] {
+            padding: 12px 16px;
+            font-size: 16px;
+            width: 200px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: #1e88e5;
+        }
+
+        button {
+            padding: 12px 22px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            background-color: #1e88e5;
+            color: white;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #1565c0;
+        }
+
+        h3 {
+            margin-top: 30px;
+            color: #1a237e;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1e88e5;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        pre {
+            background-color: #111;
+            color: #0f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>Spotify / Ticketmaster API</header>
+<p class="subtitle">
+    This website combines Spotify and Ticketmaster APIs to recommend live concerts
+    based on your most-played artists.
+</p>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Find Concerts for Your Top Artists</h2>
+        <p>How many of your top artists would you like to search concerts for?</p>
+
+        <form action="/submit" method="POST">
+            <input type="number" name="Number of Top Artists" min="1" step="1" required placeholder="e.g. 5">
+            <!--<input type="text" name="Number of Top Artists" placeholder="e.g. 5">-->
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    {% if message %}
+    <pre>{{ message }}</pre>
+    {% endif %}
+
+    {% if concerts %}
+        {% for artist, shows in concerts.items() %}
+            <div class="card">
+                <h3>{{ artist }} – Upcoming Concerts</h3>
+                <ul>
+                    {% for show_name, link in shows %}
+                        <li>
+                            <a href="{{ link }}" target="_blank">{{ show_name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+</div>
+
+<footer>
+    Powered by Spotify & Ticketmaster APIs
+</footer>
+
+</body>
+</html>
